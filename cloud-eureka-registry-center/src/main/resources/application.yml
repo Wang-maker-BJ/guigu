@@ -1,0 +1,20 @@
+#当前项目的应用名：  以后在注册中心保存配置的key
+spring:
+  application:
+    name: cloud-eureka-registry-center
+#端口号
+server:
+  port: 8761
+#当前注册中心唯一的标志： 其他微服务注册自己时使用的查找注册中心的唯一标志
+eureka:
+  client:
+    #当前服务是否注册给注册中心，因为这个项目就是注册中心，所以在此不需要
+    register-with-eureka: false
+    #是否拉取配置，注册中心中的配置，当别的服务需要获取其他服务的配置
+    fetch-registry: false
+    #配置当前注册中心的唯一地址，用来让其他微服务注册
+    service-url:
+      defaultZone: http://${eureka.instance.ip-address}:${server.port}/eureka/
+  #指定个ip地址，供上述注册中心唯一地址使用
+  instance:
+    ip-address: 127.0.0.1

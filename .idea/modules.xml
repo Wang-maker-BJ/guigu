@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-consumer-user/cloud-consumer-user.iml" filepath="$PROJECT_DIR$/cloud-consumer-user/cloud-consumer-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-consumer-user-ribbon/cloud-consumer-user (1).iml" filepath="$PROJECT_DIR$/cloud-consumer-user-ribbon/cloud-consumer-user (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-consumer-user-feign/cloud-consumer-user (2).iml" filepath="$PROJECT_DIR$/cloud-consumer-user-feign/cloud-consumer-user (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-eureka-registry-center/cloud-eureka-registry-center.iml" filepath="$PROJECT_DIR$/cloud-eureka-registry-center/cloud-eureka-registry-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-provider-movie/cloud-provider-movie.iml" filepath="$PROJECT_DIR$/cloud-provider-movie/cloud-provider-movie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-gateway/springcloud-gateway.iml" filepath="$PROJECT_DIR$/springcloud-gateway/springcloud-gateway.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: cloud-consumer-user
+  sleuth:
+    sampler:
+      #zipkin的采样率：当前项目中远程访问产生的数据需要提交多少
+      probability: 1
+  #指定数据提交给哪个zipkin的服务端接收
+  zipkin:
+    base-url:  http://127.0.0.1:9411/
+server:
+  port: 8000
+  servlet:
+    context-path: /user
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    #启用feign对hystrix的支持
+    enabled: true
+#暴露项目的hystrix的数据流：相当于设置鉴权的权限，支持actuator去拦截到数据去监控
+management:
+  endpoints:
+    web:
+      exposure:
+        # *代表暴露项目的所有的数据流
+        include: '*'

@@ -1,0 +1,33 @@
+#反向代理，路由配置
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    gateway:
+      routes:
+        #-表示给list创建一个元素(RouteDefinition类型的一个实例)
+        #id表示当前route路由配置的唯一id，建议要和路由的微服务名一样
+        - id: cloud-consumer-user-feign
+          #如果当前路由断言成功，请求交由哪个微服务处理
+          #访问gateway地址：http://localhost:10000/getUser?id=1 ==> http://localhost:8000/getUserid=1
+          #1、通过url地址来进行路由
+          uri: http://localhost:8000
+          predicates:
+            #断言匹配的路径可以匹配/**
+            - Path=/user/**
+
+        - id: cloud-provider-movie
+          #集群，负载均衡轮询的配置
+          #2、通过负载均衡进行路由(通过服务名去注册中心拉取配置，再根据配置的地址进行路由)
+          uri: lb://CLOUD-PROVIDER-MOVIE
+          predicates:
+            #根据访问的路径进行断言
+            - Path=/movie/**
+
+server:
+  port: 10000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
